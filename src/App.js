@@ -3,14 +3,17 @@ import { Route, Routes, NavLink } from 'react-router-dom';
 
 
 import './App.css';
-import HomePage from './homepage/HomePage';
+
+import RecipeForm from './components/RecipeForm';
 import Login from './login-logout/Login';
+import HomePage from './homepage/HomePage';
 
 function App() {
   return (
+
     <div className="App"> 
-      <nav> 
-      {/* <NavLink exact to ='/homepage'>
+
+      <NavLink exact to ='/homepage'>
         Home
       </NavLink>
       <NavLink exact to ='/login'>
@@ -18,13 +21,14 @@ function App() {
       </NavLink>
       <NavLink exact to='/recipe-form'>
         Add Recipe
-      </NavLink> */}
-      </nav>   
+      </NavLink>   
+    
       <Routes>
-        <Route exact path='/homepage' component={Login} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/homepage' component={HomePage} />
-        </Routes>
+        <Route exact path='/homepage' element={<Login />} />
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/homepage' element={<HomePage />} />
+        <Route exact path='/recipe-form' element={<RecipeForm />}/>
+      </Routes>
     </div>
   );
 }

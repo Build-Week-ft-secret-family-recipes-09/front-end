@@ -1,6 +1,8 @@
-import './App.css';
+import React from 'react';
+import { Route, Routes, NavLink } from 'react-router-dom';
 
-import { Routes, Route, NavLink } from 'react-router-dom';
+
+import './App.css';
 
 import RecipeForm from './components/RecipeForm';
 import Login from './login-logout/Login';
@@ -8,7 +10,9 @@ import HomePage from './homepage/HomePage';
 
 function App() {
   return (
-    <div className="App">
+
+    <div className="App"> 
+
       <NavLink exact to ='/homepage'>
         Home
       </NavLink>
@@ -18,6 +22,7 @@ function App() {
       <NavLink exact to='/recipe-form'>
         Add Recipe
       </NavLink>   
+    
       <Routes>
         <Route exact path='/homepage' element={<Login />} />
         <Route exact path='/login' element={<Login />} />

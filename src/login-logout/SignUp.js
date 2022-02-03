@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-    const { push } = 'useHistory'
+    const navigate = useNavigate();
     const initialValues = {
         username: '',
         password: '',
-        email: '',
-        phone: ''
+        email: ''
     }
     const [formValues, setFormValues] = useState(initialValues);
     const [error, setError] = useState('')
@@ -21,10 +21,10 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Submit')
+        console.log('Submit');
+        navigate('/login')
         //axios post call to /register, formValues
         //set local storage
-        //push login page
         //set error
         //console.log error
     }
@@ -56,13 +56,6 @@ const SignUp = () => {
                     type='email'
                     id='email'
                     name='email'
-                    onChange={handleChange}
-                />
-                <label>Phone Number</label>
-                <input
-                    type='number'
-                    id='phone'
-                    name='phone'
                     onChange={handleChange}
                 />
                 <button>Create Account</button>

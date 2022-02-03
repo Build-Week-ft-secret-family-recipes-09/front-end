@@ -1,12 +1,14 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [creds, setCreds] = useState({
         username: '',
         password: ''
     })
-    const [error, setError] = useState('')
-    const { push } = 'useHistory'
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setCreds({
@@ -18,11 +20,22 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Submit')
-        //axios post call to /login, creds
-        //set local storage
-        //push to home page
-        //set error
-        //console.log error
+        navigate('/homepage')
+        // axios.post('https://bldwk-scrt-rec-api.herokuapp.com/api/auth/login', creds)
+        //     .then(resp => {
+        //         console.log(resp)
+        //         setError('')
+        //         //set local storage
+        //         navigate('/homepage')
+        //     })
+        //     .catch(err => {
+        //         setError('Invalid username/password combination')
+        //         console.error(err)
+        //     })
+    }
+
+    const handleSignUp = () => {
+        navigate('/signup')
     }
 
     return(
@@ -49,6 +62,8 @@ const Login = () => {
                 />
                 <button>Login</button>
             </form>
+            <p>Don't have an account yet?</p>
+            <button onClick={handleSignUp}>Sign Up Now</button>
         </div>
     )
 }

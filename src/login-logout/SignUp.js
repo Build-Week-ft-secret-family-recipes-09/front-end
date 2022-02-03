@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,10 +24,15 @@ const SignUp = () => {
         e.preventDefault();
         console.log('Submit');
         navigate('/login')
-        //axios post call to /register, formValues
-        //set local storage
-        //set error
-        //console.log error
+        // axios.post('https://bldwk-scrt-rec-api.herokuapp.com/', formValues)
+        //     .then(resp => {
+        //         console.log(resp)
+        //         //set local storage
+        //         navigate('/login')
+        //     })
+        //     .catch(err => {
+        //         console.error(err)
+        //     })
     }
 
     return(

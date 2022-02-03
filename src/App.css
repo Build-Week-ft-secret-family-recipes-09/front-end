@@ -1,7 +1,15 @@
 .App {
   text-align: center;
+  background-color: rgba(155, 197, 195, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.recipesH1 {
+ color: rgb(36, 34, 33);
+ font-family:monospace;
+ font-size: 3rem;
+
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -13,15 +21,79 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  background-color: #bbc9e4;
+  padding: 10px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: right;
+  font-size: calc(5px + 2vmin); */
+
+}
+
+navContainer {
+  display: flex;
+  justify-content: right;
+  font-size: calc(5px + 2vmin);
+}
+
+.title {
+  color: rgb(0, 0, 0);
+  margin-left: 20px;
+  font-size: 1.4rem; 
+  font-weight: bold;
+  font-family: fantasy, Verdana, Geneva, Tahoma, sans-serif
+}
+
+.link {
+  font-weight: 300;
+  margin-left: 30px;
+  margin-right: 10px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 1.1rem;
+}
+
+.link:hover {text-decoration: underline;}
+
+.homePage {
+  border: 5px solid black;
+  margin: 10px;
+  background-color: blue;
+}
+
+.recipesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px 50px 20px 50px;
+  justify-content: space-evenly;
+}
+.recipe {
+  border: 3px solid black;
+  margin: 25px;
+  border-radius: 10px;
+  width: 20%;
+  background-color: hsl(219, 79%, 66%, 15%);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 10px 5px 10px rgb(44, 41, 41);
+}
+
+.recipe:hover {
+  box-shadow: 20px 10px 20px rgb(44, 41, 41);
+}
+
+.titleText {
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+
+.nonTitle {
+  font-family:monospace;
+  font-size: 1rem;
 }
 
 .App-link {

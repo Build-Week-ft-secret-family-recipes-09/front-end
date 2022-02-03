@@ -1,9 +1,0 @@
-.recipesContainer {
-    display: flex;
-    padding-left: 50px;
-    justify-content: space-evenly;
-}
-.recipe {
-    border: 5px solid black;
-    width: 20%;
-}

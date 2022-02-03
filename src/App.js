@@ -12,22 +12,27 @@ function App() {
   return (
 
     <div className="App"> 
+      <header >
+        <div className='title'>Secret Family Recipes</div>
+        <div className="navContainer">     
+          <NavLink className="link" to ='/login'>
+            Login
+          </NavLink>
+          <NavLink className="link" to ='/homepage'>
+            Home
+          </NavLink>
+          <NavLink className="link" to='/recipe-form'>
+            Add Recipe
+          </NavLink>
+        </div>
 
-      <NavLink to ='/login'>
-        Login
-      </NavLink>
-      <NavLink to ='/homepage'>
-        Home
-      </NavLink>
-      <NavLink to='/recipe-form'>
-        Add Recipe
-      </NavLink>   
-    
+        
+      </header>
       <Routes>
         <Route exact path='/' element={<Login />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/signup' element={<SignUp/>} />
-        <Route exact path='/homepage' element={<HomePage />} />
+        <Route exact path='/homepage' element={<HomePage className="homePage"/>} />
         <Route exact path='/recipe-form' element={<RecipeForm />}/>
       </Routes>
     </div>

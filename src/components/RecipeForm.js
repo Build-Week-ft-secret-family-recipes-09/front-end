@@ -1,8 +1,10 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import styled from "styled-components";
+
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 const RecipeFormStyles = styled.div`
     display: flex;
@@ -42,9 +44,18 @@ const initialRecipe = {
     category: ''
 }
 
-const RecipeForm = () => {
+const RecipeForm = (props) => {
     const [recipe, setRecipe] = useState(initialRecipe);
-    const { push } = useNavigate();
+    const  { navigate } = useNavigate();
+    const { id } = useParams();
+
+    useEffect(() => {
+        axiosWithAuth().get(`/api/recipes/${id}`)
+            .then(res => {
+                setRecipe(res.data)
+            })
+            .catch(err => console.log(err))
+    }, []);
 
     const handleChange = e => {
         setRecipe({
@@ -55,12 +66,11 @@ const RecipeForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        // axios.put(`some API`)
-        //     .then(res => {
-        //         props.updateRecipe(res.data);
-        //         push('/homepage')
-        //     })
-        //commenting for now until API is finished
+        axiosWithAuth().put(`/api/recipes/${id}}`, recipe)
+            .then(res => {
+                setRecipe(res.data);
+                navigate(`/`);
+            })
     };
 
 
@@ -69,7 +79,7 @@ const RecipeForm = () => {
         <RecipeFormStyles>
         <div className="recipe-form"> 
         <h2>Add a New Recipe:</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label className="label"> Title: 
                     <input 
                         type='text'

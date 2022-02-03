@@ -33,7 +33,7 @@ function App() {
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/signup' element={<SignUp/>} />
         <Route exact path='/homepage' element={<HomePage className="homePage"/>} />
-        <Route exact path='/recipe-form' element={<RecipeForm />}/>
+        <Route exact path='/recipe-form' element={<RecipeForm />} />
       </Routes>
     </div>
   );

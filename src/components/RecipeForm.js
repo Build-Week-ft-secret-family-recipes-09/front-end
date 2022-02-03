@@ -1,4 +1,38 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import styled from "styled-components";
+
+const RecipeFormStyles = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: auto;
+
+    .recipe-form {
+        min-width: 100%;
+        height: 100vh;
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .recipe-form label {
+        padding-right: 1%;
+        padding-left: 42%;
+        display: flex;
+        flex-direction: column;
+        width: 16vw;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        margin-top: 1%
+    }
+    `
 
 const initialRecipe = {
     title: '',
@@ -10,6 +44,7 @@ const initialRecipe = {
 
 const RecipeForm = () => {
     const [recipe, setRecipe] = useState(initialRecipe);
+    const { push } = useNavigate();
 
     const handleChange = e => {
         setRecipe({
@@ -20,15 +55,22 @@ const RecipeForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        // axios.put(`some API`)
+        //     .then(res => {
+        //         props.updateRecipe(res.data);
+        //         push('/homepage')
+        //     })
+        //commenting for now until API is finished
     };
 
 
 
     return (
+        <RecipeFormStyles>
         <div className="recipe-form"> 
-            <h2>Add in New Recipe:</h2>
+        <h2>Add a New Recipe:</h2>
             <form>
-                <label> Title: 
+                <label className="label"> Title: 
                     <input 
                         type='text'
                         name='title'
@@ -37,7 +79,7 @@ const RecipeForm = () => {
                         value={recipe.title}
                     />
                 </label>
-                <label> Source: 
+                <label className="label"> Source: 
                     <input 
                         type='text'
                         name='source'
@@ -46,7 +88,7 @@ const RecipeForm = () => {
                         value={recipe.source}
                     />
                 </label>
-                <label> indgredients: 
+                <label className="label"> Indgredients: 
                     <input 
                         type='text'
                         name='ingredients'
@@ -55,16 +97,16 @@ const RecipeForm = () => {
                         value={recipe.ingredients}
                     />
                 </label>
-                <label> Instructions: 
+                <label className="label"> Instructions: 
                     <input 
                         type='text'
-                        name='title'
-                        id='title-name'
+                        name='instructions'
+                        id='instructions-name'
                         onChange={handleChange}
                         value={recipe.instructions}
                     />
                 </label>
-                <label> Category: 
+                <label className="label"> Category: 
                     <input 
                         type='text'
                         name='category'
@@ -75,7 +117,9 @@ const RecipeForm = () => {
                 </label>
             <button className="submit-btn" onClick={handleSubmit}>Add Recipe</button>
             </form>
+            
         </div>
+        </RecipeFormStyles>
     )
 };
 

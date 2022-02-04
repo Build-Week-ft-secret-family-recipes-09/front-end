@@ -24,7 +24,7 @@
 ### Meet the Front-End Team: 
 ####    **Robert Stott**
  *FrontEnd Developer*
-    GitHub: 
+    GitHub: https://github.com/rstott87
 
 ####    **Savannah Maxwell**
  *FrontEnd Developer*

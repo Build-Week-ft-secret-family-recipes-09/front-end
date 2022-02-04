@@ -8,10 +8,10 @@ import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 const RecipeFormStyles = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // height: 100vh;
 
     .recipe-form {
         min-width: 100%;

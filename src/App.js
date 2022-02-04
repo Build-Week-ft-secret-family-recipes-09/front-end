@@ -7,6 +7,7 @@ import RecipeForm from './components/RecipeForm';
 import Login from './login-logout/Login';
 import HomePage from './homepage/HomePage';
 import SignUp from './login-logout/SignUp';
+import Logout from './login-logout/Logout';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           <NavLink className="link" to='/recipe-form'>
             Add Recipe
           </NavLink>
+          <NavLink className="link" to='/logout'>
+            Logout
+          </NavLink>
         </div>
 
         
@@ -34,6 +38,7 @@ function App() {
         <Route exact path='/signup' element={<SignUp/>} />
         <Route exact path='/homepage' element={<HomePage className="homePage"/>} />
         <Route exact path='/recipe-form' element={<RecipeForm />} />
+        <Route exact path='/logout' element={<Logout/>} />
       </Routes>
     </div>
   );

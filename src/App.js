@@ -4,10 +4,10 @@ import { Route, Routes, NavLink } from 'react-router-dom';
 import './App.css';
 
 import RecipeForm from './components/RecipeForm';
-import Login from './login-logout/Login';
-import HomePage from './homepage/HomePage';
-import SignUp from './login-logout/SignUp';
-import Logout from './login-logout/Logout';
+import Login from './components/Login';
+import HomePage from './components/HomePage';
+import SignUp from './components/SignUp';
+import Logout from './components/Logout';
 
 function App() {
   return (

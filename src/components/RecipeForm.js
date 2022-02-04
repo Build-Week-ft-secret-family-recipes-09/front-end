@@ -1,4 +1,5 @@
 
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -11,12 +12,10 @@ const RecipeFormStyles = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: auto;
 
     .recipe-form {
         min-width: 100%;
         height: 100vh;
-        padding: 5rem;
         display: flex;
         flex-direction: column;
     }
@@ -44,18 +43,10 @@ const initialRecipe = {
     category: ''
 }
 
-const RecipeForm = (props) => {
+const RecipeForm = () => {
     const [recipe, setRecipe] = useState(initialRecipe);
-    const  { navigate } = useNavigate();
+    const navigate = useNavigate();
     const { id } = useParams();
-
-    useEffect(() => {
-        axiosWithAuth().get(`/api/recipes/${id}`)
-            .then(res => {
-                setRecipe(res.data)
-            })
-            .catch(err => console.log(err))
-    }, []);
 
     const handleChange = e => {
         setRecipe({
@@ -64,13 +55,14 @@ const RecipeForm = (props) => {
         })
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        axiosWithAuth().put(`/api/recipes/${id}}`, recipe)
-            .then(res => {
-                setRecipe(res.data);
-                navigate(`/`);
-            })
+        navigate('/homepage');
+        // axios.put(`https://bldwk-scrt-rec-api.herokuapp.com//api/recipes/${id}}`, recipe)
+        //     .then(res => {
+        //         setRecipe(res.data);
+        //          navigate('/homepage')
+        //     })
     };
 
 
